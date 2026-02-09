@@ -1,0 +1,8 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"name": "MQTT Vanilla Transmission",
+	"ignition-version": "8.1.39",
+	"version": "1.0.0",
+	"modules": [{"name": "com.cirruslink.mqtt.transmission.gateway"},{"name": "com.cirruslink.mqtt.engine.gateway"}]
+
+}
