@@ -1,0 +1,16 @@
+{
+  "scope": "G",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "data.bin"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "daniel.schmidt",
+      "timestamp": "2024-08-08T13:52:41Z"
+    },
+    "lastModificationSignature": "b080ac5da7f7c1f02aecd38cf37b4727cef09893b368c63e306215027cbda153"
+  }
+}
