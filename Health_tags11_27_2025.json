@@ -1,0 +1,1211 @@
+{
+  "name": "Health",
+  "tagType": "Folder",
+  "tags": [
+    {
+      "valueSource": "memory",
+      "dataType": "String",
+      "name": "Last_Fault",
+      "value": "",
+      "enabled": true,
+      "tagType": "AtomicTag"
+    },
+    {
+      "valueSource": "reference",
+      "expression": "try(coalesce(tag(\"[default]Health/MQTT_Broker/IsHealthy\"), false), false)",
+      "dataType": "Boolean",
+      "sourceTagPath": "[default]Health/MQTT_Broker/IsHealthy",
+      "name": "IsHealthy_MQTT_Broker",
+      "type": "Memory Tag",
+      "tagType": "AtomicTag",
+      "enabled": true
+    },
+    {
+      "name": "MQTT_Broker",
+      "tagType": "Folder",
+      "tags": [
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "Status",
+          "value": "INIT",
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "Int4",
+          "name": "LatencyMs",
+          "value": 0,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "Message",
+          "value": "Mapping repair @ 2025-11-15 14:23:21",
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "readOnly": false,
+          "dataType": "Boolean",
+          "writePermissions": {
+            "type": "AllOf",
+            "securityLevels": []
+          },
+          "alarms": [
+            {
+              "setpointA": 0.0,
+              "notes": "Auto-generated connection health",
+              "activePipeline": "PI_Integration_Manager/Email Notifications",
+              "timeOnDelaySeconds": 5.0,
+              "clearDelay": 120.0,
+              "activeDelay": 1.0,
+              "label": "Connection Down",
+              "priority": "High",
+              "enabled": true,
+              "ackMode": "Manual",
+              "ackPipeline": "PI_Integration_Manager/Email Notifications",
+              "mode": "Equality",
+              "alarmMode": "Equal",
+              "name": "ConnDown",
+              "clearPipeline": "PI_Integration_Manager/Email Notifications",
+              "timeOffDelaySeconds": 30.0,
+              "displayPath": "Health/MQTT_Broker"
+            }
+          ],
+          "name": "IsHealthy",
+          "readPermissions": {
+            "type": "AllOf",
+            "securityLevels": []
+          },
+          "value": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "Int4",
+          "name": "Clients",
+          "value": 0,
+          "tagType": "AtomicTag"
+        },
+        {
+          "dataType": "Int8",
+          "name": "LastInboundMs",
+          "value": 0,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "reference",
+          "dataType": "DateTime",
+          "sourceTagPath": "[.]../ScriptHeartbeat.Timestamp",
+          "name": "LastCheck",
+          "value": 1763238201442,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "DateTime",
+          "name": "LastOK",
+          "tagType": "AtomicTag"
+        }
+      ]
+    },
+    {
+      "valueSource": "memory",
+      "dataType": "String",
+      "name": "Fault_Summary",
+      "value": "PI_WebAPI: No details; Actility_API: No details",
+      "enabled": true,
+      "tagType": "AtomicTag"
+    },
+    {
+      "valueSource": "reference",
+      "expression": "try(coalesce(tag(\"[default]Health/Actility_API/IsHealthy\"), false), false)",
+      "dataType": "Boolean",
+      "sourceTagPath": "[default]Health/Actility_API/IsHealthy",
+      "name": "IsHealthy_Actility_API",
+      "type": "Memory Tag",
+      "tagType": "AtomicTag",
+      "enabled": true
+    },
+    {
+      "name": "Actility_API",
+      "tagType": "Folder",
+      "tags": [
+        {
+          "valueSource": "memory",
+          "dataType": "Boolean",
+          "alarms": [
+            {
+              "setpointA": 0.0,
+              "activePipeline": "PI_Integration_Manager/Email Notifications",
+              "shelvingAllowed": false,
+              "timeOnDelaySeconds": 5.0,
+              "label": "Actility API DOwn",
+              "priority": "High",
+              "ackNotesReqd": true,
+              "enabled": true,
+              "timestampSource": "Value",
+              "ackPipeline": "PI_Integration_Manager/Email Notifications",
+              "alarmMode": "Equal",
+              "name": "Actility API DOwn",
+              "clearPipeline": "PI_Integration_Manager/Email Notifications",
+              "timeOffDelaySeconds": 30.0,
+              "displayPath": {
+                "bindType": "Tag",
+                "value": "[.]IsHealthy"
+              }
+            }
+          ],
+          "name": "IsHealthy",
+          "value": true,
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "Int4",
+          "name": "LatencyMs",
+          "value": 0,
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "Message",
+          "value": "Mapping repair @ 2025-11-15 14:23:21",
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "Status",
+          "value": "INIT",
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "DateTime",
+          "name": "LastOK",
+          "value": 1761835997484,
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "DateTime",
+          "name": "LastCheck",
+          "value": 1763238201442,
+          "enabled": true,
+          "tagType": "AtomicTag"
+        }
+      ]
+    },
+    {
+      "valueSource": "reference",
+      "expression": "try(coalesce(tag(\"[default]Health/ThingPark_Inbound/IsHealthy\"), false), false)",
+      "dataType": "Boolean",
+      "sourceTagPath": "[default]Health/ThingPark_Inbound/IsHealthy",
+      "name": "IsHealthy_ThingPark_Inbound",
+      "type": "Memory Tag",
+      "tagType": "AtomicTag",
+      "enabled": true
+    },
+    {
+      "valueSource": "reference",
+      "dataType": "DateTime",
+      "sourceTagPath": "[.]ScriptHeartbeat.Timestamp",
+      "name": "ScriptHeartbeat",
+      "formatString": "yyyy-MM-dd h:mm:ss aa",
+      "value": 1763237074821,
+      "tagType": "AtomicTag"
+    },
+    {
+      "name": "PI_WebAPI",
+      "tagType": "Folder",
+      "tags": [
+        {
+          "valueSource": "memory",
+          "dataType": "DateTime",
+          "name": "LastCheck",
+          "value": 1763238201442,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "DateTime",
+          "name": "LastOK",
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "Boolean",
+          "alarms": [
+            {
+              "ackPipeline": "SiteSyncStatus/ConnAlarm",
+              "activePipeline": "PI_Integration_Manager/Email Notifications",
+              "timeOnDelaySeconds": 5.0,
+              "name": "Connection Down",
+              "clearPipeline": "SiteSyncStatus/ConnAlarm",
+              "timeOffDelaySeconds": 30.0,
+              "label": "PI Web API Connection Down",
+              "priority": "High",
+              "displayPath": "Health/PI_WebAPI"
+            }
+          ],
+          "name": "IsHealthy",
+          "value": true,
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "Message",
+          "value": "Mapping repair @ 2025-11-15 14:23:21",
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "Status",
+          "value": "INIT",
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "Int4",
+          "name": "LatencyMs",
+          "value": 0,
+          "enabled": true,
+          "tagType": "AtomicTag"
+        }
+      ]
+    },
+    {
+      "name": "MQTT_Transmission",
+      "tagType": "Folder",
+      "tags": [
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "Message",
+          "value": "Mapping repair @ 2025-11-15 14:23:21",
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "Int4",
+          "name": "LastInboundMs",
+          "value": 0,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "DateTime",
+          "name": "LastCheck",
+          "value": 1763238201442,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "readOnly": false,
+          "dataType": "Boolean",
+          "writePermissions": {
+            "type": "AllOf",
+            "securityLevels": []
+          },
+          "alarms": [
+            {
+              "setpointA": 0.0,
+              "notes": "Auto-generated connection health",
+              "activePipeline": "PI_Integration_Manager/Email Notifications",
+              "timeOnDelaySeconds": 0.0,
+              "clearDelay": 120.0,
+              "activeDelay": 5.0,
+              "label": "Connection Down",
+              "priority": "High",
+              "enabled": true,
+              "ackMode": "Manual",
+              "ackPipeline": "PI_Integration_Manager/Email Notifications",
+              "mode": "Equality",
+              "alarmMode": "Equal",
+              "name": "ConnDown",
+              "clearPipeline": "PI_Integration_Manager/Email Notifications",
+              "timeOffDelaySeconds": 10.0,
+              "displayPath": "Health/MQTT_Transmission"
+            }
+          ],
+          "name": "IsHealthy",
+          "readPermissions": {
+            "type": "AllOf",
+            "securityLevels": []
+          },
+          "value": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "DateTime",
+          "name": "LastOK",
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "Int4",
+          "name": "LatencyMs",
+          "value": 0,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "Status",
+          "value": "INIT",
+          "tagType": "AtomicTag"
+        }
+      ]
+    },
+    {
+      "valueSource": "reference",
+      "expression": "try(coalesce(tag(\"[default]Health/SiteSync_API/IsHealthy\"), false), false)",
+      "dataType": "Boolean",
+      "sourceTagPath": "[default]Health/SiteSync_API/IsHealthy",
+      "name": "IsHealthy_SiteSync_API",
+      "type": "Memory Tag",
+      "tagType": "AtomicTag",
+      "enabled": true
+    },
+    {
+      "valueSource": "reference",
+      "expression": "try(coalesce(tag(\"[default]Health/MQTT_Transmission/IsHealthy\"), false), false)",
+      "dataType": "Boolean",
+      "sourceTagPath": "[default]Health/MQTT_Transmission/IsHealthy",
+      "name": "IsHealthy_MQTT_Transmission",
+      "type": "Memory Tag",
+      "tagType": "AtomicTag",
+      "enabled": true
+    },
+    {
+      "valueSource": "memory",
+      "dataType": "String",
+      "name": "AlarmDisplayText",
+      "value": "Healthy",
+      "tagType": "AtomicTag"
+    },
+    {
+      "name": "Config",
+      "tagType": "Folder",
+      "tags": [
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "ActilityCloudfrontIPs",
+          "value": "[\"52.85.132.122\", \"52.85.132.36\", \"52.85.132.22\", \"52.85.132.23\", \"108.156.91.15\", \"108.156.91.112\", \"108.156.91.53\", \"108.156.91.116\", \"18.238.55.96\", \"18.238.55.29\", \"18.238.55.49\", \"18.238.55.12\", \"13.32.241.42\", \"13.32.241.74\", \"13.32.241.53\", \"13.32.241.86\"]",
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "Int4",
+          "name": "TPStaleMs",
+          "value": 300000,
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "Int4",
+          "name": "ActilityHTTPSPort",
+          "value": 443,
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "GeoEventHealthURL",
+          "value": "",
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "PIWebAPIEndpoint",
+          "value": "/system",
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "SiteSyncUIExternalIP",
+          "value": "199.192.37.144",
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "Boolean",
+          "name": "PIWebAPIInsecureOK",
+          "value": false,
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "EventHubDevHost",
+          "value": "10.53.212.188",
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "PIWebAPIBase",
+          "value": "https://pgwgen002923.mgroupnet.com/piwebapi",
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "DevicesRoot",
+          "value": "[default]SiteSync/Devices",
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "PIAdapterClientID",
+          "value": "",
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "Int4",
+          "name": "BrokerPort",
+          "value": 1883,
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "PIAdapterAPIURL",
+          "value": "https://pgwgen002923.mgroupnet.com:5590/api/v1/configuration",
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "BrokerHost",
+          "value": "new-broker-hostname",
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "Boolean",
+          "name": "ActilityRequireBoth",
+          "value": false,
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "TimestampSuffix",
+          "value": "/LoRaMetrics/MesgTimeStamp",
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "Int4",
+          "name": "DMZListenTLSPort",
+          "value": 8883,
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "EventHubProdHost",
+          "value": "10.58.100.53",
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "PIWebAPIToken",
+          "value": "",
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "PIWebAPIPass",
+          "value": "",
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "GreenDCIPs",
+          "value": "[]",
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "ActilityTPXIPs",
+          "value": "[\"18.210.115.231\", \"52.1.89.48\", \"54.81.224.96\", \"54.123.45.67\"]",
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "PIWebAPIUser",
+          "value": "",
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "AzureHealthURL",
+          "value": "",
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "MQTTTxStatusTag",
+          "value": "[MQTT Transmission]Transmission Info/Connected",
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "PIAdapterBase",
+          "value": "https://pgwgen002923.mgroupnet.com:5590",
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "Int4",
+          "name": "ActilityMQTTTLSPort",
+          "value": 8883,
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "MQTTSysRootTag",
+          "value": "",
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "Int4",
+          "name": "SiteSyncUIPort",
+          "value": 8043,
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "DMZListenHost",
+          "value": "172.20.0.9",
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "PIWebAPIAuthScheme",
+          "value": "Basic",
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "ActilityHTTPSIPs",
+          "value": "[\"10.102.12.10\", \"54.224.165.180\", \"10.102.22.10\", \"3.224.202.202\"]",
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "Int4",
+          "name": "PIWebAPITimeoutMs",
+          "value": 10000,
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "SiteSyncUIHost",
+          "value": "172.20.0.9",
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "Int4",
+          "name": "EventHubPort",
+          "value": 5671,
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "Int4",
+          "name": "SiteSyncTenantID",
+          "value": 1,
+          "enabled": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "Int4",
+          "name": "TPScanMinMs",
+          "value": 30000,
+          "enabled": true,
+          "tagType": "AtomicTag"
+        }
+      ]
+    },
+    {
+      "valueSource": "reference",
+      "expression": "try(coalesce(tag(\"[default]Health/PI_WebAPI/IsHealthy\"), false), false)",
+      "dataType": "Boolean",
+      "sourceTagPath": "[default]Health/PI_WebAPI/IsHealthy",
+      "name": "IsHealthy_PI_WebAPI",
+      "type": "Memory Tag",
+      "tagType": "AtomicTag",
+      "enabled": true
+    },
+    {
+      "name": "SiteSync_API",
+      "tagType": "Folder",
+      "tags": [
+        {
+          "valueSource": "memory",
+          "dataType": "DateTime",
+          "name": "LastCheck",
+          "value": 1763238201442,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "Message",
+          "value": "Mapping repair @ 2025-11-15 14:23:21",
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "Status",
+          "value": "INIT",
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "Int4",
+          "name": "LastInboundMs",
+          "value": 0,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "Int4",
+          "name": "LatencyMs",
+          "value": 0,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "DateTime",
+          "name": "LastOK",
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "readOnly": false,
+          "dataType": "Boolean",
+          "writePermissions": {
+            "type": "AllOf",
+            "securityLevels": []
+          },
+          "alarms": [
+            {
+              "setpointA": 0.0,
+              "notes": "Auto-generated connection health",
+              "activePipeline": "SiteSyncStatus/ConnAlarm",
+              "timeOnDelaySeconds": 60.0,
+              "clearDelay": 120.0,
+              "activeDelay": 60.0,
+              "label": "Connection Down",
+              "priority": "High",
+              "enabled": true,
+              "ackMode": "Manual",
+              "ackPipeline": "SiteSyncStatus/ConnAlarm",
+              "mode": "Equality",
+              "alarmMode": "Equal",
+              "name": "ConnDown",
+              "clearPipeline": "SiteSyncStatus/ConnAlarm",
+              "timeOffDelaySeconds": 120.0,
+              "displayPath": "Health/SiteSync_API"
+            }
+          ],
+          "name": "IsHealthy",
+          "readPermissions": {
+            "type": "AllOf",
+            "securityLevels": []
+          },
+          "value": true,
+          "tagType": "AtomicTag"
+        }
+      ]
+    },
+    {
+      "valueSource": "memory",
+      "dataType": "DateTime",
+      "name": "Last_Fault_At",
+      "value": 1761803232385,
+      "enabled": true,
+      "tagType": "AtomicTag"
+    },
+    {
+      "valueSource": "reference",
+      "expression": "try(coalesce(tag(\"[default]Health/PI_Adapter/IsHealthy\"), false), false)",
+      "readOnly": false,
+      "dataType": "Boolean",
+      "sourceTagPath": "[default]Health/PI_Adapter/IsHealthy",
+      "name": "IsHealthy_PI_Adapter",
+      "type": "Memory Tag",
+      "tagType": "AtomicTag",
+      "enabled": true
+    },
+    {
+      "name": "Azure_Function",
+      "tagType": "Folder",
+      "tags": [
+        {
+          "valueSource": "memory",
+          "dataType": "Int4",
+          "name": "LastInboundMs",
+          "value": 0,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "DateTime",
+          "name": "LastOK",
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "Status",
+          "value": "INIT",
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "DateTime",
+          "name": "LastCheck",
+          "value": 1763238201442,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "Int4",
+          "name": "LatencyMs",
+          "value": 0,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "readOnly": false,
+          "dataType": "Boolean",
+          "writePermissions": {
+            "type": "AllOf",
+            "securityLevels": []
+          },
+          "alarms": [
+            {
+              "setpointA": 0.0,
+              "notes": "Auto-generated connection health",
+              "activePipeline": "SiteSyncStatus/ConnAlarm",
+              "timeOnDelaySeconds": 60.0,
+              "clearDelay": 120.0,
+              "activeDelay": 60.0,
+              "label": "Connection Down",
+              "priority": "High",
+              "enabled": true,
+              "ackMode": "Manual",
+              "ackPipeline": "SiteSyncStatus/ConnAlarm",
+              "mode": "Equality",
+              "alarmMode": "Equal",
+              "name": "ConnDown",
+              "clearPipeline": "SiteSyncStatus/ConnAlarm",
+              "timeOffDelaySeconds": 120.0,
+              "displayPath": "Health/Azure_Function"
+            }
+          ],
+          "name": "IsHealthy",
+          "readPermissions": {
+            "type": "AllOf",
+            "securityLevels": []
+          },
+          "value": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "Message",
+          "value": "Mapping repair @ 2025-11-15 14:23:21",
+          "tagType": "AtomicTag"
+        }
+      ]
+    },
+    {
+      "name": "PI_Adapter",
+      "tagType": "Folder",
+      "tags": [
+        {
+          "valueSource": "memory",
+          "dataType": "Int4",
+          "name": "LastInboundMs",
+          "value": 0,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "Message",
+          "value": "Mapping repair @ 2025-11-15 14:23:21",
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "readOnly": false,
+          "dataType": "Boolean",
+          "writePermissions": {
+            "type": "AllOf",
+            "securityLevels": []
+          },
+          "alarms": [
+            {
+              "setpointA": 0.0,
+              "notes": "Auto-generated connection health",
+              "activePipeline": "PI_Integration_Manager/Email Notifications",
+              "timeOnDelaySeconds": 5.0,
+              "clearDelay": 120.0,
+              "activeDelay": 60.0,
+              "label": "Connection Down",
+              "priority": "High",
+              "enabled": true,
+              "ackMode": "Manual",
+              "ackPipeline": "PI_Integration_Manager/Email Notifications",
+              "mode": "Equality",
+              "alarmMode": "Equal",
+              "name": "ConnDown",
+              "clearPipeline": "PI_Integration_Manager/Email Notifications",
+              "timeOffDelaySeconds": 30.0,
+              "displayPath": "Health/PI_Adapter"
+            }
+          ],
+          "name": "IsHealthy",
+          "readPermissions": {
+            "type": "AllOf",
+            "securityLevels": []
+          },
+          "value": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "Int4",
+          "name": "LatencyMs",
+          "value": 0,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "DateTime",
+          "name": "LastCheck",
+          "value": 1763238201442,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "Status",
+          "value": "INIT",
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "DateTime",
+          "name": "LastOK",
+          "tagType": "AtomicTag"
+        }
+      ]
+    },
+    {
+      "name": "Debug",
+      "tagType": "Folder",
+      "tags": [
+        {
+          "valueSource": "memory",
+          "dataType": "Int4",
+          "name": "TimerCounter",
+          "value": 90,
+          "tagType": "AtomicTag"
+        }
+      ]
+    },
+    {
+      "name": "GeoEvent",
+      "tagType": "Folder",
+      "tags": [
+        {
+          "valueSource": "memory",
+          "dataType": "Int4",
+          "name": "LatencyMs",
+          "value": 0,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "Message",
+          "value": "Mapping repair @ 2025-11-15 14:23:21",
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "readOnly": false,
+          "dataType": "Boolean",
+          "writePermissions": {
+            "type": "AllOf",
+            "securityLevels": []
+          },
+          "alarms": [
+            {
+              "setpointA": 0.0,
+              "notes": "Auto-generated connection health",
+              "activePipeline": "PI_Integration_Manager/Email Notifications",
+              "timeOnDelaySeconds": 5.0,
+              "clearDelay": 120.0,
+              "activeDelay": 60.0,
+              "label": "Connection Down",
+              "priority": "High",
+              "enabled": true,
+              "ackMode": "Manual",
+              "mode": "Equality",
+              "ackPipeline": "PI_Integration_Manager/Email Notifications",
+              "alarmMode": "Equal",
+              "name": "ConnDown",
+              "clearPipeline": "PI_Integration_Manager/Email Notifications",
+              "timeOffDelaySeconds": 30.0,
+              "displayPath": "Health/GeoEvent"
+            }
+          ],
+          "name": "IsHealthy",
+          "readPermissions": {
+            "type": "AllOf",
+            "securityLevels": []
+          },
+          "value": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "DateTime",
+          "name": "LastOK",
+          "tagType": "AtomicTag"
+        },
+        {
+          "dataType": "Int8",
+          "name": "LastInboundMs",
+          "value": 0,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "DateTime",
+          "name": "LastCheck",
+          "value": 1763238201442,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "Status",
+          "value": "INIT",
+          "tagType": "AtomicTag"
+        }
+      ]
+    },
+    {
+      "name": "ThingPark_Inbound",
+      "tagType": "Folder",
+      "tags": [
+        {
+          "valueSource": "memory",
+          "dataType": "DateTime",
+          "name": "LastOK",
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "readOnly": false,
+          "dataType": "Boolean",
+          "writePermissions": {
+            "type": "AllOf",
+            "securityLevels": []
+          },
+          "alarms": [
+            {
+              "setpointA": 0.0,
+              "notes": "Auto-generated connection health",
+              "activePipeline": "PI_Integration_Manager/Email Notifications",
+              "timeOnDelaySeconds": 60.0,
+              "clearDelay": 120.0,
+              "activeDelay": 60.0,
+              "label": "Connection Down",
+              "priority": "High",
+              "enabled": true,
+              "ackMode": "Manual",
+              "ackPipeline": "SiteSyncStatus/ConnAlarm",
+              "mode": "Equality",
+              "alarmMode": "Equal",
+              "name": "ConnDown",
+              "clearPipeline": "SiteSyncStatus/ConnAlarm",
+              "timeOffDelaySeconds": 180.0,
+              "displayPath": "Health/ThingPark_Inbound"
+            }
+          ],
+          "name": "IsHealthy",
+          "readPermissions": {
+            "type": "AllOf",
+            "securityLevels": []
+          },
+          "value": true,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "Int4",
+          "name": "LatencyMs",
+          "value": 0,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "Message",
+          "value": "Mapping repair @ 2025-11-15 14:23:21",
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "String",
+          "name": "Status",
+          "value": "INIT",
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "Int4",
+          "name": "LastInboundMs",
+          "value": 0,
+          "tagType": "AtomicTag"
+        },
+        {
+          "valueSource": "memory",
+          "dataType": "DateTime",
+          "name": "LastCheck",
+          "value": 1763238201442,
+          "tagType": "AtomicTag"
+        }
+      ]
+    },
+    {
+      "valueSource": "memory",
+      "dataType": "String",
+      "name": "TestTag",
+      "value": "Test at Sat Nov 15 22:02:56 EST 2025",
+      "tagType": "AtomicTag"
+    },
+    {
+      "valueSource": "expr",
+      "expression": "coalesce({[default]Health/MQTT_Broker/IsHealthy}, false) \u0026\u0026 coalesce({[default]Health/MQTT_Transmission/IsHealthy}, false) \u0026\u0026 coalesce({[default]Health/SiteSync_API/IsHealthy}, false) \u0026\u0026 coalesce({[default]Health/PI_WebAPI/IsHealthy}, false) \u0026\u0026 coalesce({[default]Health/PI_Adapter/IsHealthy}, false) \u0026\u0026 coalesce({[default]Health/ThingPark_Inbound/IsHealthy}, false) \u0026\u0026 coalesce({[default]Health/Azure_Function/IsHealthy}, false) \u0026\u0026 coalesce({[default]Health/GeoEvent/IsHealthy}, false) \u0026\u0026 coalesce({[default]Health/Actility_API/IsHealthy}, false)",
+      "dataType": "Boolean",
+      "alarms": [
+        {
+          "setpointA": 0.0,
+          "mode": "Equality",
+          "name": "ConnDown",
+          "priority": "High",
+          "enabled": true
+        }
+      ],
+      "name": "Overall_Healthy",
+      "enabled": true,
+      "tagType": "AtomicTag"
+    },
+    {
+      "valueSource": "reference",
+      "expression": "try(coalesce(tag(\"[default]Health/Azure_Function/IsHealthy\"), false), false)",
+      "dataType": "Boolean",
+      "sourceTagPath": "[default]Health/Azure_Function/IsHealthy",
+      "name": "IsHealthy_Azure_Function",
+      "type": "Memory Tag",
+      "tagType": "AtomicTag",
+      "enabled": true
+    },
+    {
+      "valueSource": "reference",
+      "expression": "try(coalesce(tag(\"[default]Health/GeoEvent/IsHealthy\"), false), false)",
+      "dataType": "Boolean",
+      "sourceTagPath": "[default]Health/GeoEvent/IsHealthy",
+      "name": "IsHealthy_GeoEvent",
+      "type": "Memory Tag",
+      "tagType": "AtomicTag",
+      "enabled": true
+    }
+  ]
+}

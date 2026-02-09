@@ -1,0 +1,7 @@
+{
+  "title": "SiteSync-Enterprise",
+  "description": "",
+  "parent": "SiteSyncCore",
+  "enabled": true,
+  "inheritable": false
+}

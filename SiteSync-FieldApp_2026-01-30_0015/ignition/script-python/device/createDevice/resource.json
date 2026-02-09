@@ -1,0 +1,17 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "code.py"
+  ],
+  "attributes": {
+    "hintScope": 2,
+    "lastModificationSignature": "e70d35c1911a1f4042cd50ff2c8bc2e364cb588293d6297f41f287b8aaa260b2",
+    "lastModification": {
+      "actor": "SiteSyncAdmin",
+      "timestamp": "2025-10-08T20:44:25Z"
+    }
+  }
+}
