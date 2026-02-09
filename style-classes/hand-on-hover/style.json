@@ -1,0 +1,13 @@
+{
+  "base": {
+    "style": {}
+  },
+  "variants": [
+    {
+      "pseudo": "hover",
+      "style": {
+        "cursor": "pointer"
+      }
+    }
+  ]
+}

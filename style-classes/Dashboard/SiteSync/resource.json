@@ -1,0 +1,16 @@
+{
+  "scope": "G",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "style.json"
+  ],
+  "attributes": {
+    "lastModificationSignature": "c722278eca6b30c63b6b7f4438a8a4b1c255ed7074a5b2e8fb2e81dbb185ee66",
+    "lastModification": {
+      "actor": "Sarah Sonnier",
+      "timestamp": "2024-08-23T06:29:03Z"
+    }
+  }
+}

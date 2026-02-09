@@ -1,0 +1,10 @@
+{
+  "base": {
+    "style": {
+      "fontFamily": "Arial",
+      "fontSize": "large",
+      "fontWeight": "bold",
+      "textAlign": "center"
+    }
+  }
+}

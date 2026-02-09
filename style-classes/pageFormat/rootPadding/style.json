@@ -1,0 +1,16 @@
+{
+  "base": {
+    "style": {
+      "borderStyle": "none",
+      "borderTopLeftRadius": "12px",
+      "borderTopRightRadius": "12px",
+      "borderBottomLeftRadius": "12px",
+      "borderBottomRightRadius": "12px",
+      "marginBottom": "1%",
+      "marginLeft": "2%",
+      "marginRight": "2%",
+      "marginTop": "1%",
+      "paddingBottom": "1%"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "base": {
+    "style": {
+      "backgroundColor": "--container",
+      "borderColor": "--containerBorder",
+      "borderStyle": "solid",
+      "borderTopLeftRadius": "10px",
+      "borderTopRightRadius": "10px",
+      "borderBottomLeftRadius": "10px",
+      "borderBottomRightRadius": "10px",
+      "margin": "2%",
+      "overflow": "auto",
+      "padding": "5%"
+    }
+  }
+}

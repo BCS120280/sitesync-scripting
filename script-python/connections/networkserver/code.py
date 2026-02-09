@@ -2,7 +2,7 @@ import json
 
 def loadNetworkSettings(tenantID):
 	js = system.sitesync.getJoinServerSettings(tenantID)
-	if js != None and js != "null":
+	if js != None and js != "null" and "error" not in js.lower():
 		settings = json.loads(js)
 		return settings
 	else:

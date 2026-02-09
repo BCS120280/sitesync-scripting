@@ -1,0 +1,9 @@
+{
+  "base": {
+    "style": {
+      "color": "#0d5c63",
+      "fontSize": "X-large",
+      "fontWeight": "bold"
+    }
+  }
+}

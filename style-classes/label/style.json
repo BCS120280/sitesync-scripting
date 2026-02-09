@@ -1,0 +1,10 @@
+{
+  "base": {
+    "style": {
+      "color": "teal",
+      "fontFamily": "Helvetica",
+      "fontSize": "Large",
+      "fontWeight": "bold"
+    }
+  }
+}

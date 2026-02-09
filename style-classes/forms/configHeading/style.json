@@ -1,0 +1,10 @@
+{
+  "base": {
+    "style": {
+      "color": "#0D5C63",
+      "fontSize": "20px",
+      "fontWeight": "bold",
+      "textAlign": "start"
+    }
+  }
+}
